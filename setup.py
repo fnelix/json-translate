@@ -2,6 +2,7 @@
 import sys
 import setuptools
 from pathlib import Path
+from setuptools import setup, find_packages
 
 if sys.version_info.major == 2:
     sys.exit("Python 2 is not supported anymore. The last supported version is 3.10.0")
@@ -24,7 +25,7 @@ reqs = get_reqs("requirements.txt")
 setuptools.setup(
     name="json_translate",
     version=version,
-    packages=setuptools.find_packages(),   # <-- this line is crucial
+    packages=find_packages(),   # <-- this line is crucial
     author="Saigesp",
     author_email="saigesp@gmail.com",
     description="CLI tool to translate json files using different external services",
