@@ -24,7 +24,7 @@ reqs = get_reqs("requirements.txt")
 setuptools.setup(
     name="json_translate",
     version=version,
-    packages=find_packages(),   # <-- this line is crucial
+    packages=setuptools.find_packages(),   # <-- this line is crucial
     author="Saigesp",
     author_email="saigesp@gmail.com",
     description="CLI tool to translate json files using different external services",
