@@ -26,7 +26,7 @@ class DeepLTranslator(BaseTranslator):
         """
         data = {
             "target_lang": self.target_locale,
-            "auth_key": os.environ.get("DEEPL_AUTH_KEY"),
+            #"auth_key": os.environ.get("DEEPL_AUTH_KEY"),
             "text": text,
             "preserve_formatting": "1",
         }
@@ -40,6 +40,9 @@ class DeepLTranslator(BaseTranslator):
         data = parse.urlencode(data).encode()
 
         req = request.Request(DEEPL_API_ENDPOINT, data=data)
+        
+        req.add_header("Authorization", f"DeepL-Auth-Key {os.environ.get('DEEPL_AUTH_KEY')}")
+        
         response = request.urlopen(req)  # nosec
 
         if response.status != 200:
