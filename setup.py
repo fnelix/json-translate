@@ -8,7 +8,7 @@ if sys.version_info.major == 2:
     sys.exit("Python 2 is not supported anymore. The last supported version is 3.10.0")
 
 BASE_DIR = Path(__file__).resolve().parent
-version = "0.1.0"
+version = "0.4.5"
 
 with Path.open(BASE_DIR / "README.md") as fh:
     long_description = fh.read()
